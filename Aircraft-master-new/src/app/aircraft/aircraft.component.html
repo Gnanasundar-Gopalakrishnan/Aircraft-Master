@@ -1,0 +1,57 @@
+<mat-card-header>
+    <mat-toolbar class="toolbar">
+      <mat-card-title>Add New Information</mat-card-title>
+      <span class="toolbar-spacer"></span>
+      <mat-icon (click)="onNoClick()" class="cancel">cancel</mat-icon>
+    </mat-toolbar>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container">
+      <form #aircraftForm="ngForm"  [formGroup]="_aircraftForm" (ngSubmit)="onSubmit(aircraftForm)">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-12">
+              <label>Manufacturer:</label>
+              <div class="radio-button">
+              <input type="text" formControlName="manufacturer" class="form-control">          
+            </div>
+            </div>
+            <div class="col-md-12">
+              <label>Aircraft Family:</label>
+              <input class="label" type="text" formControlName="aircraftFamily" class="form-control">
+              <!-- <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let department of filteredOptions | async" [value]="department">{{ department }}</mat-option>
+              </mat-autocomplete> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label>Aircraft Type</label>
+              <input  class="label" type="text" formControlName="aircraftType" class="form-control">
+              <!-- <mat-autocomplete #auto2="matAutocomplete" name="AirportType">
+                <mat-option *ngFor="let service of filteredOptions2 | async" [value]="service">{{ service }}</mat-option>
+              </mat-autocomplete> -->
+            </div>
+            <div class="col-md-12">
+              <label>Category</label>
+              <div class="radio-button">
+              <input type="radio" formControlName="category" class="form-control" value="Narrow Body">Narrow Body
+              <input type="radio" formControlName="category" class="form-control" value="Wide Body">Wide Body
+            </div>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6">
+            <!-- <button type="submit" class="btn btn-success">
+              <mat-icon>save</mat-icon>
+            </button> -->
+            <button type="submit" mat-stroked-button class="save-button">Save</button>
+            </div>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  </mat-card-content>
+  
